@@ -7,6 +7,9 @@
 #   TTT    eeeee  aaa aa mmm  mm  mm   TTT   rr      oooo  pp      iii  ccccc  aaa aa lll  
 #                                                          pp                                                  
 
+# 27-01-2016
+# Project for WUR geoscripting course
+# TeamTropical ~ Darell.vanderVoort & Froede.Vrolijk
 
 #-------------------------------------------------------------------------------------------------------------------#
 #                                                                                                                   #
