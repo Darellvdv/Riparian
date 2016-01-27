@@ -1,3 +1,29 @@
+
+#                                                                                          
+# TTTTTTT                            TTTTTTT                       iii                lll  
+#   TTT     eee    aa aa mm mm mmmm    TTT   rr rr   oooo  pp pp         cccc   aa aa lll  
+#   TTT   ee   e  aa aaa mmm  mm  mm   TTT   rrr  r oo  oo ppp  pp iii cc      aa aaa lll  
+#   TTT   eeeee  aa  aaa mmm  mm  mm   TTT   rr     oo  oo pppppp  iii cc     aa  aaa lll  
+#   TTT    eeeee  aaa aa mmm  mm  mm   TTT   rr      oooo  pp      iii  ccccc  aaa aa lll  
+#                                                          pp                                                  
+
+
+#-------------------------------------------------------------------------------------------------------------------#
+#                                                                                                                   #
+# Tool for analyzing Landsat 7 imagery developed for generating riparian buffers in tropical regions to protect     #
+# vulnarable ecological areas.                                                                                      #
+#                                                                                                                   #
+# Mask clouds, extract rivers, generates riparian buffer zones and applies BfastMonitor to monitor deforestation    #
+# in these zones. Also returns interactive maps for specific harvesting locations.                                  #
+#                                                                                                                   #
+# This script is made for higher level data products from Landsat 7 and downloaded from the Earth Explorer portal.  #
+# Download should include:                                                                                          #
+#   - Surface Refelctance                                                                                           #
+#   - Cloud Mask                                                                                                    #
+#                                                                                                                   #
+#-------------------------------------------------------------------------------------------------------------------#
+
+
 # Load Libraries
 library(sp)
 library(rgdal)
@@ -15,21 +41,12 @@ source("R/ViCalc.R")
 source("R/RiverExtract.R")
 source("R/InsideOutside.R")
 
-#-------------------------------------------------------------------------------------------------------------------#
-#                                                                                                                   # 
-# This script is made for higher level data products from Landsat 7 and downloaded from the Earth Explorer portal.  #
-# Download should include:                                                                                          #
-#   - Surface Refelctance                                                                                           #
-#   - Cloud Mask                                                                                                    #
-#                                                                                                                   #
-#-------------------------------------------------------------------------------------------------------------------#
-
 # Script Parameters:
 
 tresholdmax = 0.2 # Define the treshold for extracting water pixels from NDVI. To see histogram to set correct treshold value go to line 62
 areatreshold = 12000 # Define the river areas to be excluded. 10000 = 1ha
 BufferWidth = 600 # Define the bufferwidth around river in meters
-WorkingDirectory = "/home/darell/Documents/Rprojects/Project/" # Set your working directory
+WorkingDirectory = "/home/darell/Documents/Rprojects/Riparian/" # Set your working directory
   
 #-------------------------------------------------------------------------------------------------------------------#
 
