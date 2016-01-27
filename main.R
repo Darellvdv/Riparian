@@ -28,21 +28,20 @@
 
 
 # Load Libraries
-library(sp)
-library(rgdal)
-library(rgeos)
-library(raster)
-library(bfast)
-library(igraph)
-library(leaflet)
-library(bfastSpatial)
-library(magrittr)
+packages <- c('sp', 'rgdal', 'rgeos', 'raster', 'bfast', 'bfastSpatial', 'igraph', 'magrittr', 'leaflet')
+lapply(packages, require, character.only = TRUE)
+
 
 # Load functions
+functions <- c("R/CleanAndDrop.R", "R/ViCalc.R",  "R/RiverExtract.R", "R/InsideOutside.R")
+lapply(functions, source)
+
+
 source("R/CleanAndDrop.R")
 source("R/ViCalc.R")
 source("R/RiverExtract.R")
 source("R/InsideOutside.R")
+
 
 # Script Parameters:
 
