@@ -3,6 +3,6 @@
 .RData
 
 # Directories
-Data/Landsat Data
-Data/Extent
-Data/NDVI
+/Data/Landsat Data
+/Data/Extent
+/Data/NDVI
