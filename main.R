@@ -188,7 +188,7 @@ obsRiverbuf <- countObs(riverbufStack)
 plot(obsRiverbuf, main = 'Count of the amount of available pixels')
 
 # Calculate mean and visualize
-meanNDVI <- summaryBrick(riverbufStack2, fun=mean, na.rm=TRUE)
+meanNDVI <- summaryBrick(riverbufStack, fun=mean, na.rm=TRUE)
 plot(meanNDVI, main = 'Map of the mean NDVI 2004 - 2015')
 
 #-------------------------------------------------------------------------------------------#
