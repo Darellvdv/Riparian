@@ -11,6 +11,8 @@
 # Project for WUR geoscripting course
 # TeamTropical ~ Darell.vanderVoort & Froede.Vrolijk
 
+# Required R-version: 3.2.3
+
 #-------------------------------------------------------------------------------------------------------------------#
 #                                                                                                                   #
 # Tool for analyzing Landsat 7 imagery developed for generating riparian buffers in tropical regions to protect     #
@@ -43,9 +45,9 @@ source("R/RiverExtract.R")
 source("R/InsideOutside.R")
 
 
-# Script Parameters:
+### SCRIPT PARAMETERS ###
 
-tresholdmax = 0.2 # Define the treshold for extracting water pixels from NDVI. To see histogram to set correct treshold value go to line 62
+tresholdmax = 0.2 # Define the treshold for extracting water pixels from NDVI. To see histogram to set correct treshold value go to line 81
 areatreshold = 12000 # Define the river areas to be excluded. 10000 = 1ha
 BufferWidth = 600 # Define the bufferwidth around river in meters
 WorkingDirectory = "/home/darell/Documents/Rprojects/Riparian/" # Set your working directory
@@ -209,7 +211,7 @@ ChangeRaster <- raster(bfm2014, 1)
 
 # Plot the change per month for the last monitoring year
 months <- changeMonth(ChangeRaster)
-# set up labels and colourmap for months
+# Set up labels and colourmap for  all 12 months
 monthlabs <- c("jan", "feb", "mar", "apr", "may", "jun", 
                "jul", "aug", "sep", "oct", "nov", "dec")
 cols <- rainbow(12)
@@ -218,10 +220,10 @@ plot(months, col=cols, breaks=c(1:12), legend=FALSE, main = "Change per month fo
 legend("bottomright", legend=monthlabs, cex=0.7, fill=cols, ncol=2)
 
 
-# extract magn raster
+# Extract magn raster
 MagnRaster <- raster(bfm2014, 2) / 10000
 
-# make a version showing only breakpoing pixels
+# Visualize magnitude and breakpoint raster
 magn_bkp <- MagnRaster
 magn_bkp[is.na(ChangeRaster)] <- NA
 op <- par(mfrow=c(1, 2))
@@ -232,11 +234,11 @@ plot(MagnRaster, main="Magnitude: all pixels")
 
 # Inspect possible deforestation areas manually
 
-# plot the 2nd layer (or a layer without much clouds)
+# Plot a layer
 par(mfrow=c(1, 1))
 plot(riverbufStack, 2)
-# run bfmPixel() in interactive mode with a monitoring period 
+# Run bfmPixel() in interactive mode with a monitoring period 
 bfm <- bfmPixel(riverbufStack, start=c(2014, 1), interactive=TRUE, formula = response ~ trend)
-# choose the pixel whose time series you want to see by clicking on the map you plotted a moment ago
+# Monitor individual areas by choosing a pixel whose time series you want to see by clicking on plotted map
 
-plot(bfm$bfm)
+plot(bfm$bfm) # Plot the time series graph
