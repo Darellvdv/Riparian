@@ -232,8 +232,6 @@ plot(MagnRaster, main="Magnitude: all pixels")
 
 # Inspect possible deforestation areas manually
 
-# load the time series datastack
-data(riverbufStack)
 # plot the 2nd layer (or a layer without much clouds)
 par(mfrow=c(1, 1))
 plot(riverbufStack, 2)
