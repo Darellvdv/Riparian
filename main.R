@@ -7,6 +7,8 @@
 #   TTT    eeeee  aaa aa mmm  mm  mm   TTT   rr      oooo  pp      iii  ccccc  aaa aa lll  
 #                                                          pp                                                  
 
+# Riparian
+#
 # 27-01-2016
 # Project for WUR geoscripting course
 # TeamTropical ~ Darell.vanderVoort & Froede.Vrolijk
@@ -47,7 +49,7 @@ source("R/InsideOutside.R")
 
 ### SCRIPT PARAMETERS ###
 
-tresholdmax = 0.2 # Define the treshold for extracting water pixels from NDVI. To see histogram to set correct treshold value go to line 81
+tresholdmax = 0.2 # Define the treshold for extracting water pixels from NDVI. To see histogram to set correct treshold value go to line 83
 areatreshold = 12000 # Define the river areas to be excluded. 10000 = 1ha
 BufferWidth = 600 # Define the bufferwidth around river in meters
 WorkingDirectory = "/home/darell/Documents/Rprojects/Riparian/" # Set your working directory
